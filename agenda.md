@@ -1,4 +1,4 @@
-# Metagenomics Workshop (Oxford)
+# Metagenomics Workshop
 
 ## Purpose of the workshop
 
@@ -14,21 +14,25 @@ The focus is on:
 # Day 1 — Data generation, pipelines, and outputs
 
 ## 10:00–10:20 | Opening: Why this workshop?
-Lead: Ben
+**Lead:** Ben
 
-Overview of datasets, challenges, and goals:
-- heterogeneous datasets
-- inconsistent processing
-- interpretation challenges
+- Overview of datasets and projects (GETCampy, Peru, wildlife)
+- Key challenges:
+  - heterogeneous datasets
+  - inconsistent processing
+  - interpretation difficulty
+- Goals:
+  - shared understanding
+  - standardisation
+  - practical capability
 
 ---
 
 ## 10:20–11:20 | Where does the data come from?
 
-- Ben: Programme context (GETCampy, Peru, clinical datasets)
-- Manik: Human clinical sampling challenges
-- Narhulan: Environmental / wild bird datasets
-- Fran: DNA extraction challenges (chicken & wild birds)
+- **Manik:** Human clinical sampling challenges
+- **Narhulan:** Environmental / wild bird datasets
+- **Fran:** DNA extraction challenges (chicken & wild birds)
 
 ---
 
@@ -37,21 +41,21 @@ Overview of datasets, challenges, and goals:
 ---
 
 ## 11:35–12:20 | Sample QC and preprocessing
-Lead: Madison
+**Lead:** Madison
 
 - Read QC (FastQC, MultiQC)
 - Trimming and filtering
 - Host removal
 - Contamination
 
-Key concept: garbage in, garbage out
+**Key concept:** garbage in, garbage out
 
 ---
 
 ## 12:20–13:00 | Current pipelines
-Leads: Matt / Alex
+**Leads:** Matt / Alex
 
-- nf-core taxprofiler and MAG
+- nf-core `taxprofiler` and `mag`
 - Workflow structure
 - Outputs:
   - taxonomic profiles
@@ -64,21 +68,66 @@ Leads: Matt / Alex
 
 ---
 
-## 14:00–15:30 | Post-processing and biological interpretation
-Lead: Ben
+## 14:00–15:30 | Post-processing and biological interpretation (hands-on)
+**Leads:** Ben and Matt (with Alex and Madison) 
 
-- Merge abundance + metadata
-- Filtering and normalisation
-- Detecting biological signal (e.g. Campylobacter)
+### Objective
+Move from pipeline outputs to interpretable biological results using real datasets.
+
+---
+
+### Part 1 — Preparing analysis-ready data
+
+- Load abundance tables (Bracken output)
+- Merge with metadata
+- Filter low-abundance taxa (<0.01%)
+- Normalise data
+
+```r
+abundance_rel <- abundance / rowSums(abundance)
+```
+
+---
+
+### Part 2 — Read-based analyses
+
+- Extract species-specific reads (e.g. Campylobacter)
+- Calculate relative abundance
+- Generate:
+  - barplots
+  - boxplots
+  - presence/absence summaries
+
+---
+
+### Part 3 — Diversity analysis
+
+- Alpha diversity (e.g. Shannon)
+- Beta diversity (e.g. Bray–Curtis)
+
+---
+
+### Part 4 — Assembly-based comparison
+
+- MAG-based workflows
+- Requirements and limitations
+- Comparison with read-based approaches
+
+---
+
+### Core message
+
+Read-based approaches detect presence.  
+Assembly-based approaches explain biology.
+
+---
+
+### Outputs
+
+- Cleaned abundance table
+- Diversity metrics
+- Species-specific plots
 - Case vs control comparisons
-
-Challenges:
-- compositional bias
-- sequencing depth
-- false positives / negatives
-
-Core message:
-Running pipelines is easy; interpretation is the challenge.
 
 ---
 
@@ -90,8 +139,8 @@ Running pipelines is easy; interpretation is the challenge.
 
 - Standardisation of pipelines
 - QC thresholds
+- Detection thresholds
 - When to use MAGs
-- Defining detection thresholds
 
 ---
 
@@ -107,7 +156,7 @@ Hands-on hackathon using real datasets to:
 - process outputs
 - integrate metadata
 - identify biological signals
-- generate results
+- generate interpretable results
 
 ---
 
@@ -121,7 +170,6 @@ Hands-on hackathon using real datasets to:
 
 ## 10:20–11:45 | Data preparation
 
-Tasks:
 - Extract abundance tables
 - Merge metadata
 - Filter low-abundance taxa
@@ -155,7 +203,6 @@ abundance_rel <- abundance / rowSums(abundance)
 plot(read_depth, campy_abundance)
 ```
 
-Topics:
 - detection thresholds
 - sequencing depth
 - false negatives
