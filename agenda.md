@@ -41,7 +41,7 @@ The focus is on:
 ---
 
 ## 11:35–12:20 | Sample QC and preprocessing
-**Lead:** Madison
+**Lead:** Matt / Alex
 
 - Read QC (FastQC, MultiQC)
 - Trimming and filtering
@@ -69,7 +69,7 @@ The focus is on:
 ---
 
 ## 14:00–15:30 | Post-processing and biological interpretation (hands-on)
-**Leads:** Ben and Matt (with Alex and Madison) 
+**Leads:** Ben and Matt (with Alex) 
 
 ### Objective
 Move from pipeline outputs to interpretable biological results using real datasets.
